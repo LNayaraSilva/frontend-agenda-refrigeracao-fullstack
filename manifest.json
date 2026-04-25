@@ -1,11 +1,11 @@
 {
-  "name": "Diário Pet",
-  "short_name": "PetDiary",
+  "name": "Agenda de Serviços de Refrigeração",
+  "short_name": "Refrigeração",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f5f7fb",
-  "theme_color": "#4f46e5",
-  "description": "Aplicativo para agendamentos de serviços para refrigeração.",
+  "background_color": "#f1f5f9",
+  "theme_color": "#0ea5e9",
+  "description": "Sistema para agendamento de serviços de refrigeração, incluindo instalação, manutenção e limpeza.",
   "icons": [
     {
       "src": "icons/icon-192.png",
