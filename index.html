@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <meta name="description" content="Sistema para agendamento de serviços de refrigeração, manutenção, instalação e limpeza de ar-condicionado." />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <title>Agenda Refrigeração</title>
+</head>
+
+<body class="bg-light">
+  <div class="container py-4">
+
+    <header class="text-center mb-4">
+      <h1 class="mb-2">❄️ Agenda Refrigeração</h1>
+      <p class="text-muted">Cadastre e acompanhe os agendamentos</p>
+    </header>
+
+    <section class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h2 id="form-title" class="h4 mb-3">Novo agendamento</h2>
+
+        <form id="entry-form">
+          <input type="hidden" id="entry-id" />
+
+          <div class="mb-3">
+            <label for="title" class="form-label">Nome do cliente</label>
+            <input
+              type="text"
+              id="title"
+              class="form-control"
+              placeholder="Digite o nome do cliente"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="address" class="form-label">Endereço</label>
+            <input
+              type="text"
+              id="address"
+              class="form-control"
+              placeholder="Rua, número, bairro e cidade"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Telefone</label>
+            <input
+              type="tel"
+              id="phone"
+              class="form-control"
+              placeholder="(81) 99999-9999"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="service" class="form-label">Serviço solicitado</label>
+            <select id="service" class="form-select" required>
+              <option value="">Selecione o serviço</option>
+              <option value="Instalação de ar-condicionado">Instalação de ar-condicionado</option>
+              <option value="Manutenção preventiva">Manutenção preventiva</option>
+              <option value="Manutenção corretiva">Manutenção corretiva</option>
+              <option value="Limpeza de ar-condicionado">Limpeza de ar-condicionado</option>
+              <option value="Carga de gás">Carga de gás</option>
+              <option value="Conserto de geladeira/freezer">Conserto de geladeira/freezer</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="happenedAt" class="form-label">Data e horário</label>
+            <input
+              type="datetime-local"
+              id="happenedAt"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Observação do serviço</label>
+            <textarea
+              id="description"
+              rows="4"
+              class="form-control"
+              placeholder="Informe detalhes sobre o problema ou serviço desejado"
+            ></textarea>
+          </div>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <button type="submit" class="btn btn-primary">
+              Salvar agendamento
+            </button>
+
+            <button
+              type="button"
+              id="cancel-edit"
+              class="btn btn-secondary hidden"
+            >
+              Cancelar edição
+            </button>
+          </div>
+        </form>
+
+        <p id="message" class="mt-3 mb-0"></p>
+      </div>
+    </section>
+
+    <section class="card shadow-sm">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+          <h2 class="h4 mb-0">Agendamentos</h2>
+          <button id="reload-btn" class="btn btn-outline-secondary">
+            Atualizar
+          </button>
+        </div>
+
+        <div id="entries-list"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
